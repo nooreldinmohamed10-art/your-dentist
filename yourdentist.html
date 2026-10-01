@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Your Dentist — Dr. Mostafa Shami | Cairo, Fifth Settlement</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0E1917;
+    --bg-alt: #14231F;
+    --bg-raise: #1A2C27;
+    --ink: #ECE7DA;
+    --ink-dim: #A9B7B1;
+    --coral: #E38A6C;
+    --coral-soft: rgba(227,138,108,0.14);
+    --sage: #8FB6A9;
+    --line: rgba(236,231,218,0.12);
+    --serif: 'Fraunces', serif;
+    --sans: 'Work Sans', sans-serif;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+  }
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+      --bg: #F7F2E8;
+      --bg-alt: #FFFFFF;
+      --bg-raise: #FDFBF6;
+      --ink: #16211D;
+      --ink-dim: #55635C;
+      --coral-soft: rgba(227,138,108,0.12);
+      --line: rgba(22,33,29,0.1);
+    }
+  }
+  :root[data-theme="light"] {
+    --bg: #F7F2E8;
+    --bg-alt: #FFFFFF;
+    --bg-raise: #FDFBF6;
+    --ink: #16211D;
+    --ink-dim: #55635C;
+    --coral-soft: rgba(227,138,108,0.12);
+    --line: rgba(22,33,29,0.1);
+  }
+  html { scroll-behavior: smooth; scroll-padding-top: calc(84px + env(safe-area-inset-top, 0px)); }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  img, svg { max-width: 100%; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 28px; }
+  a { color: inherit; }
+
+  /* NAV */
+  header.nav {
+    position: sticky; top: 0; z-index: 50;
+    padding: 14px 0;
+    background: color-mix(in srgb, var(--bg) 82%, transparent);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line);
+  }
+  header.nav .wrap { padding-top: env(safe-area-inset-top, 0px); }
+  .nav-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    background: var(--bg-alt);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 8px 10px 8px 20px;
+  }
+  .logo { font-family: var(--serif); font-size: 1.15rem; font-weight: 600; letter-spacing: 0.2px; white-space: nowrap; }
+  .logo em { color: var(--coral); font-style: italic; }
+  nav.links { display: flex; gap: 4px; }
+  nav.links a {
+    text-decoration: none; font-size: 0.88rem; color: var(--ink-dim);
+    padding: 8px 14px; border-radius: 999px; transition: color .2s, background .2s;
+  }
+  nav.links a:hover { color: var(--ink); background: var(--bg-raise); }
+  .nav-right { display: flex; align-items: center; gap: 8px; }
+  .theme-btn {
+    width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--line);
+    background: var(--bg-raise); color: var(--ink); cursor: pointer;
+    display: flex; align-items: center; justify-content: center; font-size: 1rem;
+    flex-shrink: 0;
+  }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 20px; border-radius: 999px; font-weight: 600; font-size: 0.88rem;
+    text-decoration: none; border: 1px solid transparent; cursor: pointer;
+    white-space: nowrap;
+  }
+  .btn-coral { background: var(--coral); color: #17120E; }
+  .btn-coral:hover { filter: brightness(1.06); }
+  .btn-ghost { border-color: var(--line); color: var(--ink); }
+  .btn-ghost:hover { background: var(--bg-raise); }
+  @media (max-width: 760px) { nav.links { display: none; } }
+
+  /* HERO */
+  .hero { padding: 76px 0 60px; position: relative; }
+  .hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 48px; align-items: center; }
+  .eyebrow { color: var(--sage); font-size: 0.85rem; font-family: var(--sans); font-weight: 500; margin: 0 0 18px; }
+  h1.hero-title {
+    font-family: var(--serif); font-weight: 500; font-size: clamp(2.4rem, 5vw, 3.6rem);
+    line-height: 1.08; margin: 0 0 22px; letter-spacing: -0.01em;
+  }
+  h1.hero-title i { font-style: italic; color: var(--coral); font-weight: 500; }
+  .hero p.lede { font-size: 1.08rem; line-height: 1.6; color: var(--ink-dim); max-width: 46ch; margin: 0 0 32px; }
+  .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 34px; }
+  .hero-meta { display: flex; gap: 28px; flex-wrap: wrap; }
+  .hero-meta div { border-left: 2px solid var(--coral); padding-left: 12px; }
+  .hero-meta strong { display: block; font-family: var(--serif); font-size: 1.35rem; }
+  .hero-meta span { font-size: 0.8rem; color: var(--ink-dim); }
+
+  .arc-art { position: relative; height: 380px; }
+  .arc-art svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+  /* SECTION HEADS */
+  .section { padding: 78px 0; border-top: 1px solid var(--line); }
+  .head { max-width: 640px; margin-bottom: 46px; }
+  .head .kicker { color: var(--coral); font-weight: 600; font-size: 0.85rem; margin: 0 0 10px; }
+  .head h2 { font-family: var(--serif); font-weight: 500; font-size: clamp(1.7rem, 3.2vw, 2.3rem); margin: 0 0 14px; line-height: 1.15; }
+  .head p { color: var(--ink-dim); line-height: 1.65; margin: 0; }
+
+  /* TREATMENTS */
+  .tx-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 20px; overflow: hidden; }
+  .tx-card { background: var(--bg-alt); padding: 30px 26px; }
+  .tx-card .num { font-family: var(--serif); font-style: italic; color: var(--coral); font-size: 1rem; display: block; margin-bottom: 14px; }
+  .tx-card h3 { font-family: var(--serif); font-weight: 500; font-size: 1.2rem; margin: 0 0 10px; }
+  .tx-card p { color: var(--ink-dim); font-size: 0.92rem; line-height: 1.55; margin: 0; }
+  @media (max-width: 820px) { .tx-grid { grid-template-columns: 1fr; } }
+
+  /* ABOUT */
+  .about-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 56px; align-items: center; }
+  .doc-card {
+    background: var(--bg-alt); border: 1px solid var(--line); border-radius: 24px;
+    padding: 34px; text-align: center;
+  }
+  .doc-ring { width: 128px; height: 128px; margin: 0 auto 20px; border-radius: 50%;
+    background: linear-gradient(155deg, var(--coral-soft), transparent 70%);
+    border: 1px solid var(--line); display: flex; align-items: center; justify-content: center;
+  }
+  .doc-ring span { font-family: var(--serif); font-style: italic; font-size: 2.2rem; color: var(--coral); }
+  .doc-card h3 { font-family: var(--serif); font-size: 1.3rem; margin: 4px 0 4px; }
+  .doc-card .role { color: var(--ink-dim); font-size: 0.85rem; }
+  .about-copy p { color: var(--ink-dim); line-height: 1.7; margin: 0 0 16px; }
+  .about-copy .pill-list { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+  .pill-list span { border: 1px solid var(--line); border-radius: 999px; padding: 7px 15px; font-size: 0.82rem; color: var(--ink-dim); }
+
+  /* WHY */
+  .why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 26px; }
+  .why-item { padding-top: 18px; border-top: 2px solid var(--coral); }
+  .why-item h4 { font-family: var(--serif); font-weight: 500; font-size: 1.05rem; margin: 0 0 8px; }
+  .why-item p { color: var(--ink-dim); font-size: 0.88rem; line-height: 1.55; margin: 0; }
+  @media (max-width: 820px) { .why-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 500px) { .why-grid { grid-template-columns: 1fr; } }
+
+  /* LOCATION / CONTACT */
+  .contact-panel {
+    background: var(--bg-alt); border: 1px solid var(--line); border-radius: 28px;
+    padding: 48px; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 44px;
+  }
+  .contact-panel h2 { font-family: var(--serif); font-weight: 500; font-size: clamp(1.7rem, 3vw, 2.2rem); margin: 0 0 14px; }
+  .contact-panel p.lede2 { color: var(--ink-dim); line-height: 1.6; margin: 0 0 30px; max-width: 42ch; }
+  .contact-row { display: flex; flex-direction: column; gap: 14px; }
+  .contact-line { display: flex; align-items: center; gap: 14px; }
+  .contact-icon { width: 40px; height: 40px; border-radius: 50%; background: var(--bg-raise); border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .contact-line a { text-decoration: none; font-weight: 600; }
+  .contact-line span.label { display: block; font-size: 0.78rem; color: var(--ink-dim); font-weight: 400; }
+  .hours-card { background: var(--bg-raise); border: 1px solid var(--line); border-radius: 20px; padding: 26px; }
+  .hours-card h4 { font-family: var(--serif); margin: 0 0 16px; font-size: 1.05rem; }
+  .hours-row { display: flex; justify-content: space-between; padding: 9px 0; border-bottom: 1px dashed var(--line); font-size: 0.9rem; }
+  .hours-row:last-child { border-bottom: none; }
+  .hours-row span:last-child { color: var(--ink-dim); }
+  @media (max-width: 820px) { .contact-panel { grid-template-columns: 1fr; padding: 30px; } }
+
+  footer { padding: 40px 0 calc(30px + env(safe-area-inset-bottom, 0px)); text-align: center; }
+  footer p { color: var(--ink-dim); font-size: 0.85rem; margin: 6px 0; }
+  footer .fbtns { display: flex; justify-content: center; gap: 14px; margin-top: 16px; flex-wrap: wrap; }
+
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <div class="nav-inner">
+      <div class="logo">Your<em>Dentist</em></div>
+      <nav class="links">
+        <a href="#treatments">Treatments</a>
+        <a href="#about">Dr. Shami</a>
+        <a href="#why">Why Us</a>
+        <a href="#contact">Location</a>
+      </nav>
+      <div class="nav-right">
+        <button class="theme-btn" id="themeToggle" aria-label="Toggle theme">◐</button>
+        <a class="btn btn-coral" href="https://wa.me/201111745387" target="_blank" rel="noopener">Book on WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">General &amp; Cosmetic Dentistry · Fifth Settlement, Cairo</p>
+      <h1 class="hero-title">A smile that feels <i>like you</i>, made to last.</h1>
+      <p class="lede">Your Dentist is Dr. Mostafa Shami's clinic in New Cairo — where careful, conservative dental treatment meets the artistry of a great smile. One team, every treatment your smile needs.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-coral" href="https://wa.me/201111745387" target="_blank" rel="noopener">Book on WhatsApp</a>
+        <a class="btn btn-ghost" href="tel:+201111745387">Call the clinic</a>
+      </div>
+      <div class="hero-meta">
+        <div><strong>All-in-one</strong><span>General + cosmetic care</span></div>
+        <div><strong>New Cairo</strong><span>5th Settlement clinic</span></div>
+        <div><strong>2 lines</strong><span>Call or WhatsApp anytime</span></div>
+      </div>
+    </div>
+    <div class="arc-art" aria-hidden="true">
+      <svg viewBox="0 0 400 380" fill="none">
+        <defs>
+          <linearGradient id="arcGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="var(--coral)" stop-opacity="0.9"/>
+            <stop offset="1" stop-color="var(--sage)" stop-opacity="0.5"/>
+          </linearGradient>
+        </defs>
+        <circle cx="200" cy="190" r="170" stroke="var(--line)" stroke-width="1"/>
+        <circle cx="200" cy="190" r="128" stroke="var(--line)" stroke-width="1"/>
+        <path d="M70 150 Q200 260 330 150" stroke="url(#arcGrad)" stroke-width="6" stroke-linecap="round"/>
+        <g stroke="url(#arcGrad)" stroke-width="6" stroke-linecap="round">
+          <line x1="100" y1="150" x2="100" y2="118"/>
+          <line x1="140" y1="176" x2="140" y2="140"/>
+          <line x1="180" y1="192" x2="180" y2="154"/>
+          <line x1="220" y1="192" x2="220" y2="154"/>
+          <line x1="260" y1="176" x2="260" y2="140"/>
+          <line x1="300" y1="150" x2="300" y2="118"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="treatments">
+  <div class="wrap">
+    <div class="head">
+      <p class="kicker">Treatments</p>
+      <h2>Every dental need, under one roof.</h2>
+      <p>From routine checkups to full smile makeovers, the clinic covers the full range of general and cosmetic dentistry.</p>
+    </div>
+    <div class="tx-grid">
+      <div class="tx-card"><span class="num">i.</span><h3>General Dentistry</h3><p>Checkups, fillings, root canals and gum care to keep your teeth healthy for the long run.</p></div>
+      <div class="tx-card"><span class="num">ii.</span><h3>Cosmetic Dentistry</h3><p>Veneers, bonding and smile design built around your face, not a one-size template.</p></div>
+      <div class="tx-card"><span class="num">iii.</span><h3>Teeth Whitening</h3><p>Brighter, natural-looking results using safe, clinic-grade whitening protocols.</p></div>
+      <div class="tx-card"><span class="num">iv.</span><h3>Dental Implants</h3><p>Permanent replacements for missing teeth, planned and placed with precision.</p></div>
+      <div class="tx-card"><span class="num">v.</span><h3>Orthodontics</h3><p>Braces and clear aligner options to straighten teeth at any age.</p></div>
+      <div class="tx-card"><span class="num">vi.</span><h3>Crowns &amp; Bridges</h3><p>Restorations that rebuild strength and shape without compromising your bite.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="wrap about-grid">
+    <div class="doc-card">
+      <div class="doc-ring"><span>MS</span></div>
+      <h3>Dr. Mostafa Shami</h3>
+      <div class="role">Founder &amp; Lead Dentist</div>
+    </div>
+    <div class="about-copy">
+      <p class="kicker" style="color:var(--coral); font-weight:600; font-size:0.85rem;">The dentist behind the clinic</p>
+      <h2 style="font-family:var(--serif); font-weight:500; font-size:clamp(1.6rem,3vw,2.1rem); margin:0 0 18px;">Dentistry that treats the whole smile, not just the tooth.</h2>
+      <p>Dr. Mostafa Shami built Your Dentist around a simple idea: general care and cosmetic work shouldn't live in separate clinics. Every treatment plan starts with the health of the tooth and ends with a smile the patient actually wants to show.</p>
+      <p>Patients come in for a checkup and leave with a plan that considers both function and appearance — whether that's a single filling or a full smile redesign.</p>
+      <div class="pill-list">
+        <span>Conservative treatment planning</span>
+        <span>Smile design consultations</span>
+        <span>Comfort-first approach</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="why">
+  <div class="wrap">
+    <div class="head">
+      <p class="kicker">Why patients choose the clinic</p>
+      <h2>Care built around clarity and comfort.</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-item"><h4>Clear treatment plans</h4><p>You'll know what's being done and why, before any work begins.</p></div>
+      <div class="why-item"><h4>Cosmetic eye</h4><p>Every restoration is shaped and shaded to match the rest of your smile.</p></div>
+      <div class="why-item"><h4>Easy to reach</h4><p>Two direct lines for calls or WhatsApp — no booking apps required.</p></div>
+      <div class="why-item"><h4>Central location</h4><p>Based in New Cairo's Fifth Settlement, easy to reach from across the city.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="wrap">
+    <div class="contact-panel">
+      <div>
+        <h2>Book your visit.</h2>
+        <p class="lede2">Reach the clinic directly — no forms, no waiting on a callback. Call or message on WhatsApp and the team will confirm your slot.</p>
+        <div class="contact-row">
+          <div class="contact-line">
+            <div class="contact-icon">📍</div>
+            <div><a href="https://maps.app.goo.gl/SFqrMYNW9jaHydWUA" target="_blank" rel="noopener">Cairo, Fifth Settlement</a><span class="label">Get directions</span></div>
+          </div>
+          <div class="contact-line">
+            <div class="contact-icon">📞</div>
+            <div><a href="tel:+201111745387">011 1174 5387</a><span class="label">Call or WhatsApp</span></div>
+          </div>
+          <div class="contact-line">
+            <div class="contact-icon">💬</div>
+            <div><a href="tel:+201101118599">010 1111 8599</a><span class="label">Second line</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="hours-card">
+        <h4>Clinic hours</h4>
+        <div class="hours-row"><span>Saturday – Thursday</span><span>11:00 – 21:00</span></div>
+        <div class="hours-row"><span>Friday</span><span>By appointment</span></div>
+        <div class="hours-row" style="border-bottom:none; margin-top: 10px;">
+          <a class="btn btn-coral" style="width:100%; justify-content:center;" href="https://wa.me/201111745387" target="_blank" rel="noopener">Message on WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="logo" style="justify-content:center; display:inline-flex;">Your<em>Dentist</em></p>
+    <p>Dr. Mostafa Shami · Cairo, Fifth Settlement</p>
+    <div class="fbtns">
+      <a href="https://www.facebook.com/drmostafashamii/" target="_blank" rel="noopener" style="text-decoration:none; color:var(--ink-dim); font-size:0.85rem;">Facebook</a>
+      <a href="https://www.instagram.com/yourdentist_1" target="_blank" rel="noopener" style="text-decoration:none; color:var(--ink-dim); font-size:0.85rem;">Instagram</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var root = document.documentElement;
+    var btn = document.getElementById('themeToggle');
+    try {
+      var saved = localStorage.getItem('yd-theme');
+      if (saved) root.setAttribute('data-theme', saved);
+    } catch(e) {}
+    btn.addEventListener('click', function(){
+      var current = root.getAttribute('data-theme');
+      var isDarkNow = current ? current === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var next = isDarkNow ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('yd-theme', next); } catch(e) {}
+    });
+  })();
+</script>
+
+</body>
+</html>
