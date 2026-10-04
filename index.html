@@ -4,6 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Your Dentist — Dr. Mostafa Shami | Cairo, Fifth Settlement</title>
+<meta name="description" content="General &amp; cosmetic dentistry in New Cairo, Fifth Settlement. Book directly on WhatsApp.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Your Dentist | Dr. Mostafa Shami, Fifth Settlement">
+<meta property="og:description" content="General &amp; cosmetic dentistry in New Cairo. Book directly on WhatsApp.">
+<meta property="og:url" content="https://nooreldinmohamed10-art.github.io/your-dentist/">
+<meta name="theme-color" content="#0E1917">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230E1917'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='40' font-style='italic' text-anchor='middle' fill='%23E38A6C'%3EY%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -24,20 +31,8 @@
     padding-top: env(safe-area-inset-top, 0px);
     padding-bottom: env(safe-area-inset-bottom, 0px);
   }
-  :root:not([data-theme="light"]) {
-    color-scheme: dark;
-  }
-  @media (prefers-color-scheme: light) {
-    :root:not([data-theme="dark"]) {
-      --bg: #F7F2E8;
-      --bg-alt: #FFFFFF;
-      --bg-raise: #FDFBF6;
-      --ink: #16211D;
-      --ink-dim: #55635C;
-      --coral-soft: rgba(227,138,108,0.12);
-      --line: rgba(22,33,29,0.1);
-    }
-  }
+  :root:not([data-theme="light"]) { color-scheme: dark; }
+  :root[data-theme="light"] { color-scheme: light; }
   :root[data-theme="light"] {
     --bg: #F7F2E8;
     --bg-alt: #FFFFFF;
@@ -186,6 +181,32 @@
   footer p { color: var(--ink-dim); font-size: 0.85rem; margin: 6px 0; }
   footer .fbtns { display: flex; justify-content: center; gap: 14px; margin-top: 16px; flex-wrap: wrap; }
 
+  /* MOBILE FIXES */
+  @media (max-width: 820px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 36px; }
+    .about-grid { grid-template-columns: 1fr; gap: 32px; }
+    .arc-art { height: 260px; max-width: 360px; width: 100%; margin: 0 auto; }
+    .hero { padding: 52px 0 44px; }
+    .section { padding: 60px 0; }
+    .head { margin-bottom: 34px; }
+  }
+  @media (max-width: 560px) {
+    .wrap { padding: 0 16px; }
+    header.nav { padding: 10px 0; }
+    .nav-inner { padding: 6px 6px 6px 16px; }
+    .logo { font-size: 1.05rem; }
+    .nav-right { gap: 6px; }
+    .btn-long { display: none; }
+    .nav-right .btn { padding: 0 16px; min-height: 40px; }
+    .theme-btn { width: 40px; height: 40px; }
+    .hero-ctas .btn, .hours-card .btn { min-height: 46px; }
+    .hero-ctas .btn { flex: 1 1 100%; justify-content: center; }
+    .hero-meta { gap: 18px; }
+    .contact-panel { padding: 24px 20px; border-radius: 22px; gap: 30px; }
+    .hours-card { padding: 20px; }
+    .hours-row { flex-wrap: wrap; gap: 2px 12px; }
+    .doc-card { padding: 28px 22px; }
+  }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 </style>
 </head>
@@ -203,7 +224,7 @@
       </nav>
       <div class="nav-right">
         <button class="theme-btn" id="themeToggle" aria-label="Toggle theme">◐</button>
-        <a class="btn btn-coral" href="https://wa.me/201111745387" target="_blank" rel="noopener">Book on WhatsApp</a>
+        <a class="btn btn-coral" href="https://wa.me/201111745387" target="_blank" rel="noopener"><span class="btn-long">Book on&nbsp;</span>WhatsApp</a>
       </div>
     </div>
   </div>
@@ -357,7 +378,7 @@
     } catch(e) {}
     btn.addEventListener('click', function(){
       var current = root.getAttribute('data-theme');
-      var isDarkNow = current ? current === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var isDarkNow = current ? current === 'dark' : true;
       var next = isDarkNow ? 'light' : 'dark';
       root.setAttribute('data-theme', next);
       try { localStorage.setItem('yd-theme', next); } catch(e) {}
